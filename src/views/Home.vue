@@ -1,20 +1,42 @@
 <template>
-  <main
-      class="min-h-screen
-           bg-green-50 text-gray-700
-           dark:bg-gray-900 dark:text-purple-50">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+<div v-if="dataCountries.length" class="md:flex block md:flex-wrap">
+  <CardCountry v-for="(country, index) in dataCountries"
+               :key="index"
+               :country="country"
+  />
 
-    <slot />
-  </main>
+</div>
+  <loading v-else />
 </template>
 
 <script>
-// @ is an alias to /src
+import CardCountry from "@/components/Country/CardCountry";
+import Loading from "../components/UI/Loading";
+
+import {reactive, onMounted, toRefs } from "vue";
+import { useStore } from "vuex";
 
 export default {
   name: 'Home',
+  components: {
+    CardCountry,
+    Loading
+  },
+  setup(){
+    const  data = reactive({
+      dataCountries: []
+    })
+    const store = useStore()
+
+    onMounted(async () => {
+      data.dataCountries = await store.dispatch('loadCountries')
+    })
+
+    return {
+      ...toRefs(data)
+    }
+  }
+
 
 }
 </script>

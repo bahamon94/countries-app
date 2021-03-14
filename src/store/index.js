@@ -1,5 +1,7 @@
 import { createStore } from 'vuex'
 import theme from './theme.js'
+import dataCountries from "./dataCountries";
+
 
 export default createStore({
   state: {
@@ -9,6 +11,7 @@ export default createStore({
   actions: {
   },
   modules: {
-    theme
+    theme,
+    dataCountries
   }
 })
