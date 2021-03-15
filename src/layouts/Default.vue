@@ -1,6 +1,6 @@
 <template>
   <NavbarApp class="fixed w-full z-50"/>
-  <div class="container bg-gray-50 dark:bg-gray-700 mt-10">
+  <div class="bg-gray-50 dark:bg-gray-700 mt-10">
     <router-view/>
   </div>
 </template>

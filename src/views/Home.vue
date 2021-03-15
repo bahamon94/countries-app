@@ -2,7 +2,7 @@
   <div class="flex flex-col fixed w-full bg-gray-50  dark:bg-gray-700">
     <header class=" justify-between items-center mt-10  px-10 ">
       <div class="items-center space-x-2 lg:space-x-0">
-        <div class=" flex justify-between">
+        <div class=" flex justify-between px-14">
           <!--sub navbar -->
           <div class=" inline-flex justify-center">
 
